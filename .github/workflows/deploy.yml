@@ -10,8 +10,15 @@ env:
   MONGODB_DB_NAME: gha-demo
 jobs:
   test:
+    timeout-minutes: 5
     environment: testing
     runs-on: ubuntu-latest
+    # name of the omages are in documentation hub.docker.hub
+    # container: node:16
+    container:
+      image: node:16
+      # variables that directly needed by the image
+      # env:
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb+srv
       MONGODB_CLUSTER_ADDRESS: cluster0.sk4r3bj.mongodb.net
